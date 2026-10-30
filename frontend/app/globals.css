@@ -1,0 +1,77 @@
+:root {
+  --night: #22102e;
+  --panel: #301a40;
+  --line: #4d2c63;
+  --marigold: #f6a81c;
+  --pink: #e0457b;
+  --teal: #35b9a5;
+  --cream: #fbf1dc;
+  --muted: #c3aad3;
+}
+* { box-sizing: border-box; }
+html { background: var(--night); }
+body {
+  margin: 0; color: var(--cream); font-family: var(--font-body), system-ui, sans-serif;
+  line-height: 1.55; min-height: 100vh;
+}
+h1, h2, .who { font-family: var(--font-display), Georgia, serif; font-weight: 600; margin: 0; }
+h1 { font-size: 3.2rem; color: var(--marigold); letter-spacing: -0.02em; line-height: 1; }
+h2 { font-size: 1.25rem; margin-bottom: .6rem; }
+
+/* papel picado banner: the one memorable thing */
+.papel { display: flex; height: 64px; overflow: hidden; }
+.papel span {
+  flex: 1; clip-path: polygon(0 0, 100% 0, 100% 78%, 80% 100%, 60% 78%, 40% 100%, 20% 78%, 0 100%);
+  background: var(--pink);
+}
+.papel span:nth-child(4n+2) { background: var(--marigold); }
+.papel span:nth-child(4n+3) { background: var(--teal); }
+.papel span:nth-child(4n)   { background: #8d5bd0; }
+
+.shell { display: grid; grid-template-columns: 300px 1fr; gap: 2.5rem; max-width: 1100px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+@media (max-width: 800px) { .shell { grid-template-columns: 1fr; } h1 { font-size: 2.4rem; } }
+.lede { color: var(--muted); margin: .6rem 0 1.5rem; }
+
+.people { list-style: none; padding: 0; margin: 0 0 1.5rem; display: grid; gap: .4rem; }
+.people button { width: 100%; text-align: left; display: flex; flex-direction: column; background: transparent; border: 1px solid var(--line); }
+.people button span { color: var(--muted); font-size: .85rem; }
+.people button.on { border-color: var(--marigold); background: var(--panel); }
+
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 1.1rem; margin-top: 1.25rem; display: grid; gap: .7rem; }
+.card h2 { margin: 0; }
+.note { color: var(--muted); font-size: .9rem; margin: 0; }
+
+input, textarea, button { font: inherit; color: inherit; }
+input, textarea { width: 100%; background: var(--night); border: 1px solid var(--line); border-radius: 6px; padding: .6rem .75rem; }
+input::placeholder, textarea::placeholder { color: #8d73a0; }
+button { cursor: pointer; background: var(--night); border: 1px solid var(--line); border-radius: 6px; padding: .55rem .9rem; }
+button:hover:not(:disabled) { border-color: var(--marigold); }
+button:disabled { opacity: .55; cursor: wait; }
+button.primary { background: var(--marigold); border-color: var(--marigold); color: #2a1200; font-weight: 600; }
+:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+.row { display: flex; gap: .6rem; flex-wrap: wrap; }
+.row input { flex: 1; min-width: 180px; }
+
+.kinds { display: flex; gap: .5rem; flex-wrap: wrap; }
+.kinds button.on { border-color: var(--marigold); background: #4a2a12; }
+
+.who { font-size: 2.4rem; }
+.who small { font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--muted); margin-left: .8rem; font-weight: 400; }
+
+.altar { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: .9rem; margin-top: 1rem; }
+.offering { position: relative; background: var(--panel); border: 1px solid var(--line); border-top: 4px solid var(--marigold); border-radius: 8px; padding: 1rem 1rem 1rem 1rem; }
+.offering.song { border-top-color: var(--pink); }
+.offering.story { border-top-color: var(--teal); }
+.offering.object { border-top-color: #8d5bd0; }
+.offering p { margin: .4rem 0 0; }
+.glyph { font-size: 1.5rem; }
+.x { position: absolute; top: .4rem; right: .4rem; border: 0; background: transparent; color: var(--muted); padding: .1rem .5rem; font-size: 1.2rem; }
+
+.chat { display: grid; gap: .5rem; }
+.chat p { margin: 0; padding: .6rem .8rem; border-radius: 8px; max-width: 85%; white-space: pre-wrap; }
+.chat .you { justify-self: end; background: #4a2a12; }
+.chat .keeper { background: var(--night); border: 1px solid var(--line); }
+
+blockquote { margin: .5rem 0 0; padding: .8rem 1rem; border-left: 4px solid var(--marigold); font-family: var(--font-display), Georgia, serif; font-size: 1.1rem; line-height: 1.7; white-space: pre-wrap; }
+.empty { color: var(--muted); }
+.error { background: #4a1530; border: 1px solid var(--pink); padding: .7rem 1rem; border-radius: 6px; }

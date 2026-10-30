@@ -1,0 +1,22 @@
+server:
+  port: 8080
+spring:
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      init:
+        pull-model-strategy: when_missing
+        chat:
+          include: true
+        embedding:
+          include: true
+      chat:
+        options:
+          model: llama3.1:8b
+          temperature: 0.6
+      embedding:
+        options:
+          model: nomic-embed-text
+  mvc:
+    async:
+      request-timeout: 180000
